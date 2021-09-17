@@ -452,13 +452,15 @@ def find_borders(img):
                     # Step 4
                     if borders[i, j] != 1:
                         lnbd = borders[i, j]
-    return borders
+    return borders, nbd
 
 
 if __name__ == '__main__':
     start_time = time.time()
-    image = cv2.imread('image_2.png', 0)
-    image[1, 1] = 1
-    border = find_borders(image)
+    image = cv2.imread('image_3.png', 0)
+    border, num = find_borders(image)
     np.savetxt('border.txt', border, fmt='%d')
+    border[border < 0] *= -1
+    border[border > 1] *= int(255 / num)
+    cv2.imwrite('border.png', border)
     print(f'{time.time() - start_time} seconds')
