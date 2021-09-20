@@ -139,247 +139,141 @@ def find_clockwise(borders, center, i2j2):
 def find_counterclockwise(borders, center, i2j2):
     i = i2j2[0]
     j = i2j2[1]
-    exam_pixels = [[]]
+    pixel_find = 0
     if center[0] - i == 0 and center[1] - j == -1:
         if borders[i-1, j] != 0:
-            return [i-1, j], exam_pixels
-        else:
-            exam_pixels.append([i-1, j])
+            return [i-1, j], pixel_find
         if borders[i-1, j-1] != 0:
-            return [i-1, j-1], exam_pixels
-        else:
-            exam_pixels.append([i-1, j-1])
+            return [i-1, j-1], pixel_find
         if borders[i-1, j-2] != 0:
-            return [i-1, j-2], exam_pixels
-        else:
-            exam_pixels.append([i-1, j-2])
+            return [i-1, j-2], pixel_find
         if borders[i, j-2] != 0:
-            return [i, j-2], exam_pixels
-        else:
-            exam_pixels.append([i, j-1])
+            return [i, j-2], pixel_find
         if borders[i+1, j-2] != 0:
-            return [i+1, j-2], exam_pixels
-        else:
-            exam_pixels.append([i+1, j-2])
+            return [i+1, j-2], pixel_find
         if borders[i+1, j-1] != 0:
-            return [i+1, j-1], exam_pixels
-        else:
-            exam_pixels.append([i+1, j-1])
+            return [i+1, j-1], pixel_find
         if borders[i+1, j] != 0:
-            return [i+1, j], exam_pixels
-        else:
-            exam_pixels.append([i+1, j])
+            return [i+1, j], pixel_find
 
     if center[0] - i == 1 and center[1] - j == -1:
         if borders[i, j-1] != 0:
             return [i, j-1], exam_pixels
-        else:
-            exam_pixels.append([i, j-1])
         if borders[i, j-2] != 0:
-            return [i, j-2], exam_pixels
-        else:
-            exam_pixels.append([i, j-2])
+            return [i, j-2], pixel_find
         if borders[i+1, j-2] != 0:
-            return [i+1, j-2], exam_pixels
-        else:
-            exam_pixels.append([i+1, j-2])
+            return [i+1, j-2], pixel_find
         if borders[i+2, j-2] != 0:
-            return [i+2, j-2], exam_pixels
-        else:
-            exam_pixels.append([i+2, j-2])
+            return [i+2, j-2], pixel_find
         if borders[i+2, j-1] != 0:
-            return [i+2, j-1], exam_pixels
-        else:
-            exam_pixels.append([i+2, j-1])
+            return [i+2, j-1], pixel_find
         if borders[i+2, j] != 0:
-            return [i+2, j], exam_pixels
-        else:
-            exam_pixels.append([i+2, j])
+            return [i+2, j], pixel_find
         if borders[i+1, j] != 0:
-            return [i+1, j], exam_pixels
-        else:
-            exam_pixels.append([i+1, j])
+            return [i+1, j], pixel_find
 
     if center[0] - i == 1 and center[1] - j == 0:
         if borders[i, j-1] != 0:
-            return [i, j-1], exam_pixels
-        else:
-            exam_pixels.append([i, j-1])
+            return [i, j-1], pixel_find
         if borders[i+1, j-1] != 0:
-            return [i+1, j-1], exam_pixels
-        else:
-            exam_pixels.append([i+1, j-1])
+            return [i+1, j-1], pixel_find
         if borders[i+2, j-1] != 0:
-            return [i+2, j-1], exam_pixels
-        else:
-            exam_pixels.append([i+2, j-1])
+            return [i+2, j-1], pixel_find
         if borders[i+2, j] != 0:
-            return [i+2, j], exam_pixels
-        else:
-            exam_pixels.append([i+2, j])
+            return [i+2, j], pixel_find
         if borders[i+2, j+1] != 0:
-            return [i+2, j+1], exam_pixels
-        else:
-            exam_pixels.append([i+2, j+1])
+            return [i+2, j+1], pixel_find
         if borders[i+1, j+1] != 0:
-            return [i+1, j+1], exam_pixels
-        else:
-            exam_pixels.append([i+1, j+1])
+            return [i+1, j+1], pixel_find
+        pixel_find = 1
         if borders[i, j+1] != 0:
-            return [i, j+1], exam_pixels
-        else:
-            exam_pixels.append([i, j+1])
+            return [i, j+1], pixel_find
 
     if center[0] - i == 1 and center[1] - j == 1:
         if borders[i+1, j] != 0:
-            return [i+1, j], exam_pixels
-        else:
-            exam_pixels.append([i+1, j])
+            return [i+1, j], pixel_find
         if borders[i+2, j] != 0:
-            return [i+2, j], exam_pixels
-        else:
-            exam_pixels.append([i+2, j])
+            return [i+2, j], pixel_find
         if borders[i+2, j+1] != 0:
-            return [i+2, j+1], exam_pixels
-        else:
-            exam_pixels.append([i+2, j+1])
+            return [i+2, j+1], pixel_find
         if borders[i+2, j+2] != 0:
-            return [i+2, j+2], exam_pixels
-        else:
-            exam_pixels.append([i+2, j+2])
+            return [i+2, j+2], pixel_find
         if borders[i+1, j+2] != 0:
-            return [i+1, j+2], exam_pixels
-        else:
-            exam_pixels.append([i+1, j+2])
+            return [i+1, j+2], pixel_find
+        pixel_find = 1
         if borders[i, j+2] != 0:
-            return [i, j+2], exam_pixels
-        else:
-            exam_pixels.append([i, j+2])
+            return [i, j+2], pixel_find
         if borders[i, j+1] != 0:
-            return [i, j+1], exam_pixels
-        else:
-            exam_pixels.append([i, j+1])
+            return [i, j+1], pixel_find
 
     if center[0] - i == 0 and center[1] - j == 1:
         if borders[i+1, j] != 0:
-            return [i+1, j], exam_pixels
-        else:
-            exam_pixels.append([i+1, j])
+            return [i+1, j], pixel_find
         if borders[i+1, j+1] != 0:
-            return [i+1, j+1], exam_pixels
-        else:
-            exam_pixels.append([i+1, j+1])
+            return [i+1, j+1], pixel_find
         if borders[i+1, j+2] != 0:
-            return [i+1, j+2], exam_pixels
-        else:
-            exam_pixels.append([i+1, j+2])
+            return [i+1, j+2], pixel_find
         if borders[i, j+2] != 0:
-            return [i, j+2], exam_pixels
-        else:
-            exam_pixels.append([i, j+2])
+            return [i, j+2], pixel_find
+        pixel_find = 1
         if borders[i-1, j+2] != 0:
-            return [i-1, j+2], exam_pixels
-        else:
-            exam_pixels.append([i-1, j+2])
+            return [i-1, j+2], pixel_find
         if borders[i-1, j+1] != 0:
-            return [i-1, j+1], exam_pixels
-        else:
-            exam_pixels.append([i-1, j+1])
+            return [i-1, j+1], pixel_find
         if borders[i-1, j] != 0:
-            return [i-1, j], exam_pixels
-        else:
-            exam_pixels.append([i-1, j])
+            return [i-1, j], pixel_find
 
     if center[0] - i == -1 and center[1] - j == 1:
         if borders[i, j+1] != 0:
-            return [i, j+1], exam_pixels
-        else:
-            exam_pixels.append([i, j+1])
+            return [i, j+1], pixel_find
         if borders[i, j+2] != 0:
-            return [i, j+2], exam_pixels
-        else:
-            exam_pixels.append([i, j+2])
+            return [i, j+2], pixel_find
         if borders[i-1, j+2] != 0:
-            return [i-1, j+2], exam_pixels
-        else:
-            exam_pixels.append([i-1, j+2])
+            return [i-1, j+2], pixel_find
+        pixel_find = 1
         if borders[i-2, j+2] != 0:
-            return [i-2, j+2], exam_pixels
-        else:
-            exam_pixels.append([i-2, j+2])
+            return [i-2, j+2], pixel_find
         if borders[i-2, j+1] != 0:
-            return [i-2, j+1], exam_pixels
-        else:
-            exam_pixels.append([i-2, j+1])
+            return [i-2, j+1], pixel_find
         if borders[i-2, j] != 0:
-            return [i-2, j], exam_pixels
-        else:
-            exam_pixels.append([i-2, j])
+            return [i-2, j], pixel_find
         if borders[i-1, j] != 0:
-            return [i-1, j], exam_pixels
-        else:
-            exam_pixels.append([i-1, j])
+            return [i-1, j], pixel_find
 
     if center[0] - i == -1 and center[1] - j == 0:
         if borders[i, j+1] != 0:
-            return [i, j+1], exam_pixels
-        else:
-            exam_pixels.append([i, j+1])
+            return [i, j+1], pixel_find
         if borders[i-1, j+1] != 0:
-            return [i-1, j+1], exam_pixels
-        else:
-            exam_pixels.append([i-1, j+1])
+            return [i-1, j+1], pixel_find
+        pixel_find = 1
         if borders[i-2, j+1] != 0:
-            return [i-2, j+1], exam_pixels
-        else:
-            exam_pixels.append([i-2, j+1])
+            return [i-2, j+1], pixel_find
         if borders[i-2, j] != 0:
-            return [i-2, j], exam_pixels
-        else:
-            exam_pixels.append([i-2, j])
+            return [i-2, j], pixel_find
         if borders[i-2, j-1] != 0:
-            return [i-2, j-1], exam_pixels
-        else:
-            exam_pixels.append([i-2, j-1])
+            return [i-2, j-1], pixel_find
         if borders[i-1, j-1] != 0:
-            return [i-1, j-1], exam_pixels
-        else:
-            exam_pixels.append([i-1, j-1])
+            return [i-1, j-1], pixel_find
         if borders[i, j-1] != 0:
-            return [i, j-1], exam_pixels
-        else:
-            exam_pixels.append([i, j-1])
+            return [i, j-1], pixel_find
 
     if center[0] - i == -1 and center[1] - j == -1:
         if borders[i-1, j] != 0:
-            return [i-1, j], exam_pixels
-        else:
-            exam_pixels.append([i-1, j])
+            return [i-1, j], pixel_find
+        pixel_find = 1
         if borders[i-2, j] != 0:
-            return [i-2, j], exam_pixels
-        else:
-            exam_pixels.append([i-2, j])
+            return [i-2, j], pixel_find
         if borders[i-2, j-1] != 0:
-            return [i-2, j-1], exam_pixels
-        else:
-            exam_pixels.append([i-2, j-1])
+            return [i-2, j-1], pixel_find
         if borders[i-2, j-2] != 0:
-            return [i-2, j-2], exam_pixels
-        else:
-            exam_pixels.append([i-2, j-2])
+            return [i-2, j-2], pixel_find
         if borders[i-1, j-2] != 0:
-            return [i-1, j-2], exam_pixels
-        else:
-            exam_pixels.append([i-1, j-2])
+            return [i-1, j-2], pixel_find
         if borders[i, j-2] != 0:
-            return [i, j-2], exam_pixels
-        else:
-            exam_pixels.append([i, j-2])
+            return [i, j-2], pixel_find
         if borders[i, j-1] != 0:
-            return [i, j-1], exam_pixels
-        else:
-            exam_pixels.append([i, j-1])
-    return None, exam_pixels
+            return [i, j-1], pixel_find
+    return None, pixel_find
 
 
 def find_borders(img):
@@ -403,11 +297,11 @@ def find_borders(img):
                         i3j3 = [i, j]
                         # Step 3.3
                         while True:
-                            i4j4, exam_pixels = find_counterclockwise(borders, i3j3, i2j2)
+                            i4j4, next_pixel_found = find_counterclockwise(borders, i3j3, i2j2)
                             # Step 3.4
-                            if [i3j3[0], i3j3[1] + 1] in exam_pixels:
+                            if next_pixel_found == 1:
                                 borders[i3j3[0], i3j3[1]] = -nbd
-                            if [i3j3[0], i3j3[1] + 1] not in exam_pixels and borders[i3j3[0], i3j3[1]] == 1:
+                            if next_pixel_found == 0 and borders[i3j3[0], i3j3[1]] == 1:
                                 borders[i3j3[0], i3j3[1]] = nbd
                             # Step 3.5
                             if i4j4 == [i, j] and i3j3 == i1j1:
@@ -432,11 +326,11 @@ def find_borders(img):
                         i3j3 = [i, j]
                         # Step 3.3
                         while True:
-                            i4j4, exam_pixels = find_counterclockwise(borders, i3j3, i2j2)
+                            i4j4, next_pixel_found = find_counterclockwise(borders, i3j3, i2j2)
                             # Step 3.4
-                            if [i3j3[0], i3j3[1] + 1] in exam_pixels:
+                            if next_pixel_found == 1:
                                 borders[i3j3[0], i3j3[1]] = -nbd
-                            if [i3j3[0], i3j3[1] + 1] not in exam_pixels and borders[i3j3[0], i3j3[1]] == 1:
+                            if next_pixel_found == 0 and borders[i3j3[0], i3j3[1]] == 1:
                                 borders[i3j3[0], i3j3[1]] = nbd
                             # Step 3.5
                             if i4j4 == [i, j] and i3j3 == i1j1:
@@ -457,9 +351,9 @@ def find_borders(img):
 
 if __name__ == '__main__':
     start_time = time.time()
-    image = cv2.imread('image_3.png', 0)
+    image = cv2.imread('image.png', 0)
     border, num = find_borders(image)
-    np.savetxt('border.txt', border, fmt='%d')
+    np.savetxt('border.txt', border, fmt=f'%{len(str(num)) + 1}d', )
     border[border < 0] *= -1
     border[border > 1] *= int(255 / num)
     cv2.imwrite('border.png', border)
