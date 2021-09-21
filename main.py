@@ -74,10 +74,19 @@ def find_counterclockwise(borders, center, i2j2):
     pixel_list[0] = 0
     pixel_list[pixel_list != 0] = 1
     try:
+        if roll_dict[tuple(center - i2j2)] > 3:
+            if roll_dict[tuple(center - i2j2)] - pixel_list.tolist().index(1) < 3:
+                # print('flag', center, roll_dict[tuple(center - i2j2)], pixel_list.tolist().index(1), borders[4, 5])
+                pixel_found = 1
+        elif roll_dict[tuple(center - i2j2)] < 3:
+            if 8 + roll_dict[tuple(center - i2j2)] - pixel_list.tolist().index(1) < 3:
+                pixel_found = 1
+
         if pixel_list.tolist().index(1) - roll_dict[tuple(center - i2j2)] < 0:
             result = np.array(pixel_dict[pixel_list.tolist().index(1) + 8 - roll_dict[tuple(center - i2j2)]])
         else:
             result = np.array(pixel_dict[pixel_list.tolist().index(1) - roll_dict[tuple(center - i2j2)]])
+        # print(center, pixel_found)
         return (-result + center).tolist(), pixel_found
     except ValueError:
         return None
